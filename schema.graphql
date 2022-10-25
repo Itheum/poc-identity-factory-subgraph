@@ -1,0 +1,16 @@
+type IdentityDeployedEntity @entity {
+  id: ID!
+  contract: Bytes!
+  owner: Bytes!
+  unixTimestamp: BigInt!
+}
+
+
+type OwnerActionEntity @entity {
+  id: ID!
+  contract: Bytes!
+  owner: Bytes!
+  actionBy: Bytes!
+  actionType: String!
+  unixTimestamp: BigInt!
+}

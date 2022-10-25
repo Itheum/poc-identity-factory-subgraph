@@ -1,0 +1,27 @@
+specVersion: 0.0.4
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: IdentityFactory
+    network: goerli
+    source:
+      address: "0x67f59f43e8b28c7e863998a3001b15f7682d5793"
+      abi: IdentityFactory
+      startBlock: 7669965
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - IdentityDeployedEntity
+        - OwnerActionEntity
+      abis:
+        - name: IdentityFactory
+          file: IdentityFactory/abis/IdentityFactory.json
+      eventHandlers:
+        - event: OwnerAction(indexed address,indexed address,indexed address,string)
+          handler: handleOwnerActionEvent
+        - event: IdentityDeployed(indexed address,indexed address)
+          handler: handleIdentityDeployedEvent
+      file: IdentityFactory/IdentityFactory.wasm
