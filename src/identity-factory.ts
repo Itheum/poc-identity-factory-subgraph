@@ -1,22 +1,7 @@
 import {
-  OwnerAction,
   IdentityDeployed
 } from "../generated/IdentityFactory/IdentityFactory"
-import { IdentityDeployedEntity, OwnerActionEntity } from "../generated/schema"
-
-export function handleOwnerActionEvent(
-  event: OwnerAction
-): void {
-  const ownerActionEntity = new OwnerActionEntity(event.transaction.hash.toHex())
-
-  ownerActionEntity.contract = event.params._contract
-  ownerActionEntity.owner = event.params._owner
-  ownerActionEntity.actionBy = event.params._actionBy
-  ownerActionEntity.actionType = event.params._actionType
-  ownerActionEntity.unixTimestamp = event.block.timestamp
-
-  ownerActionEntity.save()
-}
+import { IdentityDeployedEntity } from "../generated/schema"
 
 export function handleIdentityDeployedEvent(event: IdentityDeployed): void {
   const identityDeployedEntity = new IdentityDeployedEntity(event.transaction.hash.toHex())
