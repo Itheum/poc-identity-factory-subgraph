@@ -6,9 +6,9 @@ dataSources:
     name: IdentityFactory
     network: goerli
     source:
-      address: "0x9e133049d876c5e25d6ff4144e9d87c4902cc843"
+      address: "0x0843d327872120ad85024d686420b3a0880e7b97"
       abi: IdentityFactory
-      startBlock: 7853869
+      startBlock: 7871093
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
